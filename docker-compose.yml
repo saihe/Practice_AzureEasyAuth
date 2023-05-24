@@ -3,11 +3,12 @@ version: '3.8'
 services:
   frontend:
     container_name: frontend
-    build: ./frontend
+    image: ghcr.io/saihe/practice_azureeasyauth/frontend
+
     ports:
       - 80:80
   backend:
     container_name: backend
-    build: ./backend
+    image: ghcr.io/saihe/practice_azureeasyauth/backend
     ports:
       - 8080:8080

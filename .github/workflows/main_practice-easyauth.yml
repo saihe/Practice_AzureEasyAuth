@@ -26,12 +26,19 @@ jobs:
         username: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_7C4CB41A93DD41F08FDA34C2B25DC155 }}
         password: ${{ secrets.AZUREAPPSERVICE_CONTAINERPASSWORD_40568A6727834A16B352A68525C5E4F0 }}
 
-    - name: Build and push container image to registry
+    - name: Build and push frontend container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c4cb41a93dd41f08fda34c2b25dc155 }}/saihe/practice_azureeasyauth:${{ github.sha }}
-        file: ./Dockerfile
+        tags: ghcr.io/saihe/practice_azureeasyauth/frontend:${{ github.sha }}
+        file: ./frontend/Dockerfile
+
+    - name: Build and push backend container image to registry
+      uses: docker/build-push-action@v3
+      with:
+        push: true
+        tags: ghcr.io/saihe/practice_azureeasyauth/backend:${{ github.sha }}
+        file: ./backend/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
