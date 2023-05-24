@@ -57,5 +57,4 @@ jobs:
         app-name: 'practice-easyauth'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_eb4627f23fdf46e68763368c55459096 }}
-#         images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7c4cb41a93dd41f08fda34c2b25dc155 }}/saihe/practice_azureeasyauth:${{ github.sha }}'
-        configuration-file: .
+        images: ghcr.io/saihe/practice_azureeasyauth/frontend:${{ github.sha }}
